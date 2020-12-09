@@ -70,7 +70,7 @@ const originalFlavors = [
     "Strawberry",
     "Vanilla",
     "Vanilla Burnt Almond"
-]
+]*/
 /*
 
 Use the copy function below to do the following:
@@ -123,12 +123,13 @@ Use the addFlavor function below to do the following:
 */
 
 
-function addFlavor(flavor, ...testArray){
-   const tempArray=[...testArray];
-   tempArray.unshift(flavor);
-   return tempArray;
-}
-console.log('Time to add some flava ', addFlavor())
+function addFlavor(testArray, flavor){
+     const tempArray=[...testArray];
+     tempArray.unshift(flavor);
+     return tempArray;
+  }
+  console.log('Time to add some flava ', addFlavor('Rainbow Sherbert', originalFlavors));
+  
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -142,9 +143,11 @@ Use the removeLastFlavor function below to do the following:
     For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
-   /*your code here*/
+function removeLastFlavor(testArray){
+   testArray.pop();
+   return testArray;
 }
+console.log('running removeLastFlavor(originalFlavors) would return ', removeLastFlavor(originalFlavors));
 
 
 
@@ -180,9 +183,16 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-    /*your code here*/
+function removeFlavorByName(testArray, flavor){
+    for(let i=0; i<testArray.length; i++){
+        if(testArray[i]===flavor){
+            testArray.splice(i, 1);
+        }
+    }
+  return testArray;
 }
+console.log('removeFlavorByName outputs ', removeFlavorByName(originalFlavors, 'Vanilla'));
+
 
 
 
@@ -206,9 +216,16 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
-    /*your code here*/
+function filterByWord(testArray, flavor){
+    let newArray = [];
+    for(let i=0; i<testArray.length; i++){
+        if(testArray[i].includes(flavor)){
+            newArray.push(testArray[i]);
+        }
+    }
+  return newArray;
 }
+console.log('filterByWord function ', filterByWord(originalFlavors, 'Vanilla'));
 
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
